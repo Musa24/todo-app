@@ -15,5 +15,8 @@ build/
 # Environment
 .env
 
+# Database
+todos.db
+
 # OS
 .DS_Store
