@@ -23,6 +23,19 @@ TodoApp — a FastAPI-based todo/task management application with SQLAlchemy ORM
 - `tests/` — pytest test suite (uses httpx for API testing)
 - `static/` — Frontend HTML/CSS/JS
 
+## Ticket Workflow (Explain-then-Code)
+
+This is a learning project. When implementing Jira tickets, work incrementally one chunk at a time:
+
+1. **Announce** what will be done (file, purpose, why now)
+2. **Wait** for explicit approval
+3. **Write explanation first** — create a markdown file in `docs/<TICKET>/` (e.g. `STEP_01_explanation.md`) that explains the intuition, what the code will do, and why
+4. **Wait** for approval of the explanation
+5. **Only then** write the code for that chunk
+6. **Pause** and describe the next step, then repeat
+
+Never combine steps. Never write code before the explanation is approved. Explanation docs live in `docs/<TICKET>/`.
+
 ## Conventions
 
 - Python 3.13+, managed with `uv` (no pip, no requirements.txt)
