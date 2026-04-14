@@ -17,6 +17,7 @@ build/
 
 # Database
 todos.db
+test.db
 
 # OS
 .DS_Store
