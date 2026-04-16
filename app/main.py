@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -7,16 +9,19 @@ from app.database import Base, engine, get_db
 from app.models import Task
 from app.schemas import TaskCreate, TaskResponse, TaskUpdate
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = BASE_DIR / "static"
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 @app.get("/", include_in_schema=False)
 def read_index() -> FileResponse:
-    return FileResponse("static/index.html")
+    return FileResponse(STATIC_DIR / "index.html")
 
 
 @app.post("/tasks", response_model=TaskResponse, status_code=status.HTTP_201_CREATED)
